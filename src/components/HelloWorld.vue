@@ -1,12 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-  msg: string
-}>()
+  msg: string;
+}>();
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1>{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
@@ -15,15 +15,18 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+$text-color: green;
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
   top: -10px;
+  @apply text-green-500;
 }
 
 h3 {
   font-size: 1.2rem;
+  color: $text-color;
 }
 
 .greetings h1,
