@@ -11,7 +11,8 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=99965cdc00f9"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@rushstack/eslint-patch": "^1.1.0",
+    "@storybook/addon-a11y": "^6.4.20",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-links": "^6.4.20",
@@ -36,6 +38,7 @@
     "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
+    "chromatic": "^6.5.3",
     "cypress": "^9.5.3",
     "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
