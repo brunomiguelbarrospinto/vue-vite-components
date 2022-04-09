@@ -32,7 +32,7 @@
       :name="leftIcon"
       :size="size"
     />
-    <div class="button__text" v-if="text">{{ text }}</div>
+    <div class="button__text" v-if="text && !isLoading">{{ text }}</div>
     <Icon
       v-if="rightIcon && !isLoading"
       class="button__icon"
@@ -47,7 +47,7 @@ import { defineComponent, computed } from "vue";
 import InteractiveElement from "./InteractiveElement.vue";
 import Icon from "./Icon.vue";
 export const sizes = ["xs", "sm", "md", "lg", "xl"];
-export const colors = ["primary"];
+export const colors = ["default", "primary"];
 
 export default defineComponent({
   components: {
