@@ -16,7 +16,13 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
+    "@storybook/addon-docs": "^6.4.21",
+    "@storybook/builder-webpack5": "^6.4.21",
+    "@storybook/manager-webpack5": "^6.4.21",
+    "i": "^0.3.7",
+    "npm": "^8.6.0",
     "pinia": "^2.0.13",
+    "sass-loader": "^12.6.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
@@ -27,6 +33,7 @@
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-links": "^6.4.20",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/vue3": "^6.4.20",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^16.11.26",
@@ -54,5 +61,8 @@
     "vitest": "^0.8.1",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.33.9"
+  },
+  "resolutions": {
+    "webpack": "^5"
   }
 }
