@@ -1,4 +1,5 @@
 import Button, { sizes, colors } from "../components/common/Button.vue";
+import { solidIconNames } from "../components/common/Icon.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -22,6 +23,14 @@ export default {
       defaultValue: "default",
     },
     text: { control: "text", defaultValue: "Button" },
+    leftIcon: {
+      options: [undefined, ...solidIconNames],
+      control: "select",
+    },
+    rightIcon: {
+      options: [undefined, ...solidIconNames],
+      control: "select",
+    },
   },
 };
 

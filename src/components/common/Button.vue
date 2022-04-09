@@ -5,15 +5,8 @@
     :disabled="isDisabled"
     type="button"
   >
-    <svg
-      v-if="isLoading"
-      class="-ml-1 mr-2 h-4 w-4 animate-spin text-white"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
+    <svg v-if="isLoading" class="loading-svg" fill="none" viewBox="0 0 24 24">
       <circle
-        class="opacity-25"
         cx="12"
         cy="12"
         r="10"
@@ -21,7 +14,6 @@
         stroke-width="4"
       ></circle>
       <path
-        class="opacity-75"
         fill="currentColor"
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
@@ -101,12 +93,13 @@ export default defineComponent({
   },
   setup(props) {
     const classList = computed(() => {
-      const { isOutline, color, isText, isCircle } = props;
+      const { isOutline, color, isText, isCircle, isLoading } = props;
+      const isLoadingClass = isLoading ? "button--loading" : "";
       const isOutlineClass = isOutline ? "button--outline" : "";
       const isTextClass = isText ? "button--text" : "";
       const isCircleClass = isCircle ? "button--circle" : "";
       const colorClass = color ? `button--${color}` : "";
-      return `button button--${props.size} ${isOutlineClass} ${colorClass} ${isTextClass} ${isCircleClass}`;
+      return `button button--${props.size} ${isOutlineClass} ${colorClass} ${isTextClass} ${isCircleClass} ${isLoadingClass}`;
     });
     return {
       classList,
@@ -142,10 +135,27 @@ $selector: ".button";
     @apply pointer-events-none opacity-50;
   }
 
+  // Loading
+
+  svg.loading-svg {
+    @apply animate-spin;
+
+    circle {
+      @apply opacity-25;
+    }
+    path {
+      @apply opacity-75;
+    }
+  }
+
   // Sizes
   &--xs {
     @apply text-xs;
     @apply h-6 px-2;
+
+    svg.loading-svg {
+      @apply h-2 h-2;
+    }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
       @apply ml-1;
@@ -157,6 +167,10 @@ $selector: ".button";
   &--sm {
     @apply text-sm;
     @apply h-8 px-3;
+
+    svg.loading-svg {
+      @apply h-3 h-3;
+    }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
       @apply ml-2;
@@ -168,6 +182,10 @@ $selector: ".button";
   &--md {
     @apply text-base;
     @apply h-10 px-4;
+
+    svg.loading-svg {
+      @apply h-4 h-4;
+    }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
       @apply ml-3;
@@ -179,6 +197,10 @@ $selector: ".button";
   &--lg {
     @apply text-lg;
     @apply h-12 px-5;
+
+    svg.loading-svg {
+      @apply h-5 h-5;
+    }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
       @apply ml-4;
@@ -190,6 +212,10 @@ $selector: ".button";
   &--xl {
     @apply text-xl;
     @apply h-14 px-6;
+
+    svg.loading-svg {
+      @apply h-6 h-6;
+    }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
       @apply ml-5;
