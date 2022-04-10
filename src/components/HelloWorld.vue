@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from "@/components/common/Button.vue";
 defineProps<{
   msg: string;
 }>();
@@ -12,6 +13,7 @@ defineProps<{
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
       <a target="_blank" href="https://vuejs.org/">Vue 3</a>. What's next?
     </h3>
+    <Button text="Boton" leftIcon="ArrowSmLeftIcon" />
   </div>
 </template>
 
