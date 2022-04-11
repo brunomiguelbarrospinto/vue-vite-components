@@ -12,9 +12,11 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=99965cdc00f9"
+    "chromatic": "npx chromatic --project-token=99965cdc00f9",
+    "test": "jest"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "@heroicons/vue": "^1.0.6",
     "@storybook/addon-docs": "^6.4.21",
     "@storybook/builder-webpack5": "^6.4.21",
@@ -23,7 +25,9 @@
     "npm": "^8.6.0",
     "pinia": "^2.0.13",
     "sass-loader": "^12.6.0",
+    "ts-jest": "^27.1.4",
     "vue": "^3.2.31",
+    "vue-jest": "^5.0.0-alpha.8",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
@@ -34,6 +38,7 @@
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-links": "^6.4.20",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-storyshots": "^6.4.21",
     "@storybook/vue3": "^6.4.20",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^16.11.26",
@@ -50,6 +55,7 @@
     "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^8.2.0",
+    "jest": "^27.5.1",
     "jsdom": "^19.0.0",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
