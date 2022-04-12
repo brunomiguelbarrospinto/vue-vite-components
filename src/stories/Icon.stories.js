@@ -1,4 +1,8 @@
-import Icon, { sizes, solidIconNames } from "../components/common/Icon.vue";
+import Icon, {
+  sizes,
+  solidIconNames,
+  types,
+} from "../components/common/Icon.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -12,13 +16,14 @@ export default {
       defaultValue: "md",
     },
     type: {
-      options: ["solid", "outline"],
+      options: types,
       control: "select",
-      defaultValue: "solid",
+      defaultValue: types[0],
     },
     name: {
-      options: [undefined, ...solidIconNames],
+      options: solidIconNames,
       control: "select",
+      defaultValue: solidIconNames[0],
     },
   },
 };
