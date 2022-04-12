@@ -13,7 +13,7 @@ describe("Icon", () => {
   it("check types", () => {
     expect(types).toEqual(["solid", "outline"]);
   });
-  it("check types", () => {
+  it("check sizes", () => {
     expect(sizes).toEqual(["xs", "sm", "md", "lg", "xl"]);
   });
   it("check icon names", () => {
