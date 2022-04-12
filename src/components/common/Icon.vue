@@ -8,8 +8,6 @@ import * as OutlineIcons from "@heroicons/vue/outline";
 
 export const types = ["solid", "outline"];
 export const solidIconNames = Object.keys(SolidIcons);
-export const outlineIconNames = Object.keys(OutlineIcons);
-export const iconNames = [...new Set([...solidIconNames, ...outlineIconNames])];
 export const sizes = ["xs", "sm", "md", "lg", "xl"];
 
 type IconTypes = "solid" | "outline";
@@ -20,7 +18,7 @@ export default defineComponent({
     name: {
       type: String,
       validator: (value: string) => solidIconNames.includes(value),
-    }, // Prop "name" must be in PascalCase like "ArrowSmLeft"
+    }, // Prop "name" must be in PascalCase like "ArrowSmLeftIcon"
     type: {
       type: String as PropType<IconTypes>,
       default: "solid",

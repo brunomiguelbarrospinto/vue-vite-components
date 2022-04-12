@@ -1,6 +1,6 @@
 <template>
   <component
-    class="cursor-pointer"
+    class="interactive-element"
     :is="computedTagName"
     :href="href"
     :to="to"
@@ -14,9 +14,6 @@
 import { defineComponent, computed } from "vue";
 export default defineComponent({
   props: {
-    as: {
-      type: [String, Object],
-    },
     to: {
       type: [String, Object],
     },
@@ -26,13 +23,7 @@ export default defineComponent({
   },
   setup(props) {
     const computedTagName = computed(() =>
-      props.as
-        ? props.as
-        : props.to
-        ? `router-link`
-        : props.href
-        ? `a`
-        : `button`
+      props.to ? `router-link` : props.href ? `a` : `button`
     );
     return {
       computedTagName,
@@ -40,3 +31,8 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+.interactive-element {
+  @apply cursor-pointer;
+}
+</style>
