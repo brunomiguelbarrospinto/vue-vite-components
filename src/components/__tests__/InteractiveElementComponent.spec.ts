@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import InteractiveElement from "../common/InteractiveElement.vue";
+import InteractiveElementComponent from "../common/InteractiveElementComponent.vue";
 
-describe("InteractiveElement", () => {
+describe("InteractiveElementComponent", () => {
   it("renders router-link", () => {
-    const wrapper = mount(InteractiveElement, {
+    const wrapper = mount(InteractiveElementComponent, {
       props: { to: "home" },
     });
     wrapper.vm.$nextTick(() => {
@@ -12,7 +12,7 @@ describe("InteractiveElement", () => {
     });
   });
   it("renders a", () => {
-    const wrapper = mount(InteractiveElement, {
+    const wrapper = mount(InteractiveElementComponent, {
       props: { href: "https://vitest.dev" },
     });
     wrapper.vm.$nextTick(() => {
@@ -20,7 +20,7 @@ describe("InteractiveElement", () => {
     });
   });
   it("renders a with title", () => {
-    const wrapper = mount(InteractiveElement, {
+    const wrapper = mount(InteractiveElementComponent, {
       props: { href: "https://vitest.dev", title: "https://vitest.dev" },
     });
     wrapper.vm.$nextTick(() => {
@@ -29,7 +29,7 @@ describe("InteractiveElement", () => {
     });
   });
   it("renders button with slot", () => {
-    const wrapper = mount(InteractiveElement, {
+    const wrapper = mount(InteractiveElementComponent, {
       slots: {
         default: "https://vitest.dev",
       },
