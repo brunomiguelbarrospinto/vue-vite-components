@@ -1,10 +1,13 @@
-import Button, { sizes, colors } from "../components/common/Button.vue";
-import { solidIconNames } from "../components/common/Icon.vue";
+import ButtonComponent, {
+  sizes,
+  colors,
+} from "../components/common/ButtonComponent.vue";
+import { solidIconNames } from "../components/common/IconComponent.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: "Components/Button",
-  component: Button,
+  title: "Components/ButtonComponent",
+  component: ButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
     isDisabled: { control: "boolean", defaultValue: false },
@@ -37,13 +40,13 @@ export default {
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { Button },
+  components: { ButtonComponent },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<Button v-bind="args" />',
+  template: '<ButtonComponent v-bind="args" />',
 });
 
 export const Default = Template.bind({});

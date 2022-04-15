@@ -1,5 +1,5 @@
 <template>
-  <InteractiveElement
+  <InteractiveElementComponent
     v-bind="$props"
     :class="classList"
     :disabled="isDisabled"
@@ -18,36 +18,37 @@
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
     </svg>
-    <Icon
+    <IconComponent
       v-if="leftIcon && !isLoading"
       class="button__icon"
       :name="leftIcon"
       :size="size"
     />
     <div class="button__text" v-if="text && !isLoading">{{ text }}</div>
-    <Icon
+    <IconComponent
       v-if="rightIcon && !isLoading"
       class="button__icon"
       :name="rightIcon"
       :size="size"
     />
-  </InteractiveElement>
+  </InteractiveElementComponent>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
-import InteractiveElement from "./InteractiveElement.vue";
-import Icon from "./Icon.vue";
+import InteractiveElementComponent from "./InteractiveElementComponent.vue";
+import IconComponent from "./IconComponent.vue";
 export const sizes = ["xs", "sm", "md", "lg", "xl"];
 export const colors = ["default", "primary"];
 
 export default defineComponent({
+  name: "ButtonComponent",
   components: {
-    InteractiveElement,
-    Icon,
+    InteractiveElementComponent,
+    IconComponent,
   },
   props: {
-    ...InteractiveElement.$props,
+    ...InteractiveElementComponent.$props,
     isDisabled: {
       type: Boolean,
       default: false,

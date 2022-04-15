@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 export default defineComponent({
+  name: "InteractiveElementComponent",
   props: {
     to: {
       type: [String, Object],

@@ -1,11 +1,17 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import Icon, { types, sizes, solidIconNames } from "../common/Icon.vue";
+import IconComponent, {
+  types,
+  sizes,
+  solidIconNames,
+} from "../common/IconComponent.vue";
 import * as SolidIcons from "@heroicons/vue/solid";
 
 describe("Icon", () => {
   it("renders icon", () => {
-    const wrapper = mount(Icon, { props: { name: "AcademicCapIcon" } });
+    const wrapper = mount(IconComponent, {
+      props: { name: "AcademicCapIcon" },
+    });
     wrapper.vm.$nextTick(() => {
       expect(wrapper.find("svg").exists()).toBe(true);
     });
@@ -20,7 +26,7 @@ describe("Icon", () => {
     expect(Object.keys(SolidIcons)).toEqual(solidIconNames);
   });
   it("renders solid icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", type: "solid" },
     });
     wrapper.vm.$nextTick(() => {
@@ -28,7 +34,7 @@ describe("Icon", () => {
     });
   });
   it("renders outline icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", type: "outline" },
     });
     wrapper.vm.$nextTick(() => {
@@ -36,7 +42,7 @@ describe("Icon", () => {
     });
   });
   it("renders xs icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", size: "xs" },
     });
     wrapper.vm.$nextTick(() => {
@@ -44,7 +50,7 @@ describe("Icon", () => {
     });
   });
   it("renders sm icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", size: "sm" },
     });
     wrapper.vm.$nextTick(() => {
@@ -52,7 +58,7 @@ describe("Icon", () => {
     });
   });
   it("renders md icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", size: "md" },
     });
     wrapper.vm.$nextTick(() => {
@@ -60,7 +66,7 @@ describe("Icon", () => {
     });
   });
   it("renders lg icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", size: "lg" },
     });
     wrapper.vm.$nextTick(() => {
@@ -68,7 +74,7 @@ describe("Icon", () => {
     });
   });
   it("renders xl icon", () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(IconComponent, {
       props: { name: "AcademicCapIcon", size: "xl" },
     });
     wrapper.vm.$nextTick(() => {

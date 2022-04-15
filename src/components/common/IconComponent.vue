@@ -12,6 +12,7 @@ export const sizes = ["xs", "sm", "md", "lg", "xl"];
 
 type IconTypes = "solid" | "outline";
 export default defineComponent({
+  name: "IconComponent",
   props: {
     // https://heroicons.com
     // https://github.com/tailwindlabs/heroicons
