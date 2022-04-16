@@ -1,6 +1,6 @@
 {
   "name": "vue-vite-components",
-  "version": "0.0.0-development-5",
+  "version": "0.0.0-development-7",
   "files": [
     "dist"
   ],
@@ -25,7 +25,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=99965cdc00f9",
-    "coverage": "vitest run --coverage --environment jsdom"
+    "coverage": "vitest run --coverage --environment jsdom",
+    "publish:package": "npm run build && npm publish"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
