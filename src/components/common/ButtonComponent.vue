@@ -113,7 +113,8 @@ $selector: ".button";
   // Display
   @apply flex items-center justify-center;
   // Text
-  @apply text-#{$default-color} font-medium;
+  @apply text-#{$default-color};
+  @apply font-medium;
   // Background
   @apply bg-gray-100;
   // Border
