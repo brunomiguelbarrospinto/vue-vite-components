@@ -1,6 +1,6 @@
 <template>
   <component
-    class="interactive-element"
+    :class="href || to ? 'interactive-element' : undefined"
     :is="computedTagName"
     :href="href"
     :to="to"
@@ -32,7 +32,7 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .interactive-element {
   @apply cursor-pointer;
 }
