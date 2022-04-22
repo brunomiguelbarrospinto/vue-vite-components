@@ -26,7 +26,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=99965cdc00f9",
     "coverage": "vitest run --coverage --environment jsdom",
-    "publish:package": "npm run build && npm publish"
+    "publish:package": "npm run build && npm publish",
+    "publish:patch": "npm run build && npm version patch && npm publish && git push"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
