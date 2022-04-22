@@ -1,5 +1,29 @@
-function getContrastColor(color: "string"): "black" | "white" {
-  const hexcolor = color.replace("#", "") as string;
+const cssColors = require("../data/css-colors.json");
+
+interface getContrastColorProps {
+  hexadecimal?: string;
+  color?: string;
+}
+
+function getContrastColor(props: getContrastColorProps): "black" | "white" {
+  const hexadecimal = props.hexadecimal;
+  const color = props.color;
+  //const rgb = props.rgb;
+
+  let hexcolor = "";
+
+  if (hexadecimal) {
+    hexcolor = hexadecimal;
+  }
+
+  if (color) {
+    hexcolor = cssColors.find(
+      (item: { text: string; value: string }) => item.text === color
+    ).value;
+  }
+
+  hexcolor = hexcolor.replace("#", "");
+
   const r = parseInt(hexcolor.substr(0, 2), 16);
   const g = parseInt(hexcolor.substr(2, 2), 16);
   const b = parseInt(hexcolor.substr(4, 2), 16);

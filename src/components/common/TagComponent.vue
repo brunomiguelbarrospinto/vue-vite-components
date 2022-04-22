@@ -3,21 +3,37 @@
     {{ text }}
   </InteractiveElementComponent>
 </template>
-<script setup lang="ts">
-import { computed } from "vue";
+<script lang="ts">
+import { computed, defineComponent } from "vue";
 import getContrastColor from "../../utils/getContrastColor";
 import InteractiveElementComponent from "./InteractiveElementComponent.vue";
-const props = defineProps({
-  text: String,
-  backgroundColor: String,
-  ...InteractiveElementComponent.$props,
-});
-const textColor = computed(() =>
-  getContrastColor(props.backgroundColor || "#ffffff")
-);
 
-const classList = computed(() => {
-  return `tag tag--${textColor.value}`;
+export default defineComponent({
+  components: {
+    InteractiveElementComponent,
+  },
+  props: {
+    text: {
+      type: String,
+    },
+    backgroundColor: {
+      type: String,
+    },
+  },
+  setup(props) {
+    const textColor = computed(() =>
+      getContrastColor({ hexadecimal: props.backgroundColor || "#ffffff" })
+    );
+
+    const classList = computed(() => {
+      return `tag tag--${textColor.value}`;
+    });
+
+    return {
+      textColor,
+      classList,
+    };
+  },
 });
 </script>
 
