@@ -1,10 +1,10 @@
 import TagComponent from "../components/common/TagComponent.vue";
-import cssColor from "../data/css-colors.json";
+import cssColors from "../data/css-colors.json";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 
 let mappingColors = {};
-cssColor.forEach((color) => {
+cssColors.forEach((color) => {
   mappingColors[color.value] = color.text;
 });
 
@@ -13,7 +13,7 @@ export default {
   component: TagComponent,
   argTypes: {
     backgroundColor: {
-      options: cssColor.map((c) => c.value),
+      options: cssColors.map((c) => c.value),
       control: {
         type: "select", // Type 'select' is automatically inferred when 'options' is defined
         labels: mappingColors,
