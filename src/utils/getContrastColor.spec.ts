@@ -5,5 +5,6 @@ describe("Get contrast color", () => {
   it("getContrastColor passing hexadecimal | color", () => {
     expect(getContrastColor({ hexadecimal: "#000000" })).toBe("white");
     expect(getContrastColor({ color: "black" })).toBe("white");
+    expect(getContrastColor({ color: "xxxxxx" })).toBe("black");
   });
 });

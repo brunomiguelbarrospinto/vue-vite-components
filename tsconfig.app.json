@@ -1,9 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/data/css-colors.json"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "resolveJsonModule": true,
+    "esModuleInterop": true ,
     "composite": true,
     "baseUrl": ".",
     "paths": {
