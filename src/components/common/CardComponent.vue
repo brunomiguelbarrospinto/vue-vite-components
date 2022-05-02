@@ -32,7 +32,7 @@ const classList = "card";
 
 <style lang="scss" scoped>
 .card {
-  @apply border p-3 rounded-sm;
+  @apply border p-3 rounded-sm h-full;
   &:hover {
     @apply shadow;
   }
