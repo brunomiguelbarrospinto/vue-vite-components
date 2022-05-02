@@ -4,20 +4,25 @@
       v-if="$slots.title || $slots.subtitle || $slots['extra-info']"
       class="card__header"
     >
-      <div v-if="$slots.title" class="card__header__title">
-        <slot name="title" />
+      <div v-if="$slots.logo" class="card__header__logo">
+        <slot name="logo" />
       </div>
-      <div v-if="$slots.subtitle" class="card__header__subtitle">
-        <slot name="subtitle" />
-      </div>
-      <div v-if="$slots['extra-info']" class="card__header__extra-info">
-        <slot name="extra-info" />
+      <div>
+        <div v-if="$slots.title" class="card__header__title">
+          <slot name="title" />
+        </div>
+        <div v-if="$slots.subtitle" class="card__header__subtitle">
+          <slot name="subtitle" />
+        </div>
+        <div v-if="$slots['extra-info']" class="card__header__extra-info">
+          <slot name="extra-info" />
+        </div>
       </div>
     </header>
     <div v-if="$slots.content" class="card__content">
       <slot name="content" />
     </div>
-    <slot />
+    <slot v-if="$slots.default" />
   </div>
 </template>
 
@@ -42,6 +47,9 @@ const classList = "card";
     &__extra-info {
       @apply text-xs;
     }
+  }
+  &__content {
+    @apply p-3 text-sm;
   }
 }
 </style>
