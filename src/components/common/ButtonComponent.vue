@@ -118,7 +118,7 @@ $selector: ".button";
   // Background
   @apply bg-gray-100;
   // Border
-  @apply rounded border-0;
+  @apply rounded-sm border-0;
   // Transition
   @apply transition duration-300;
 

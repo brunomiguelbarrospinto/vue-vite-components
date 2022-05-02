@@ -39,7 +39,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .tag {
-  @apply inline-block rounded py-1 px-2 text-xs font-semibold uppercase hover:shadow-md;
+  @apply inline-block rounded-sm py-1 px-2 text-xs font-semibold uppercase hover:shadow;
   color: v-bind("textColor");
   background-color: v-bind("backgroundColor");
 }
