@@ -5,7 +5,7 @@
       class="card__header"
     >
       <div v-if="$slots.image" class="card__header__image">
-        <slot name="logo" />
+        <slot name="image" />
       </div>
       <div>
         <div v-if="$slots.title" class="card__header__title">
