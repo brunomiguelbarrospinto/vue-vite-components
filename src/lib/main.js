@@ -4,6 +4,7 @@ import IconComponent from "@/components/common/IconComponent.vue";
 import IconLoadingAnimatedComponent from "@/components/common/IconLoadingAnimatedComponent.vue";
 import InteractiveElementComponent from "@/components/common/InteractiveElementComponent.vue";
 import TagComponent from "@/components/common/TagComponent.vue";
+import CardComponent from "@/components/common/CardComponent.vue";
 import getContrastColor from "@/utils/getContrastColor";
 export {
   ButtonComponent,
@@ -11,5 +12,6 @@ export {
   IconLoadingAnimatedComponent,
   InteractiveElementComponent,
   TagComponent,
+  CardComponent,
   getContrastColor,
 };
