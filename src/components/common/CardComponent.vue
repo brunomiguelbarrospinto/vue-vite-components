@@ -4,7 +4,7 @@
       v-if="$slots.title || $slots.subtitle || $slots['extra-info']"
       class="card__header"
     >
-      <div v-if="$slots.logo" class="card__header__logo">
+      <div v-if="$slots.image" class="card__header__image">
         <slot name="logo" />
       </div>
       <div>
@@ -38,6 +38,10 @@ const classList = "card";
   }
   &__header {
     @apply relative flex w-full text-sm;
+
+    &__image {
+      @apply relative mr-3;
+    }
     &__title {
       @apply font-medium;
     }
@@ -49,7 +53,7 @@ const classList = "card";
     }
   }
   &__content {
-    @apply p-3 text-sm;
+    @apply mt-3 text-sm;
   }
 }
 </style>
