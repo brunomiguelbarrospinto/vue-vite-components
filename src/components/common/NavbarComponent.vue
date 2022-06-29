@@ -26,7 +26,7 @@ const classList = computed(() => {
 .navbar {
   @apply z-20 w-full border-b border-gray-200 bg-white;
   &--sticky {
-    @apply sticky;
+    @apply sticky top-0;
   }
   &__content {
     @apply mx-auto flex max-w-4xl items-center justify-between p-3;
