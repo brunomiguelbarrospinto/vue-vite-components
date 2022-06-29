@@ -10,6 +10,7 @@ import InteractiveElementComponent from "./InteractiveElementComponent.vue";
 
 const props = defineProps({
   ...InteractiveElementComponent.$props,
+
   text: {
     type: String,
   },
@@ -23,7 +24,7 @@ const textColor = computed(() =>
 );
 
 const classList = computed(() => {
-  return `tag`;
+  return `tag tag--${textColor.value}`;
 });
 </script>
 
