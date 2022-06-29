@@ -10,27 +10,19 @@
   </component>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from "vue";
-export default defineComponent({
-  name: "InteractiveElementComponent",
-  props: {
-    to: {
-      type: [String, Object],
-    },
-    href: {
-      type: String,
-    },
+<script lang="ts" setup>
+import { computed } from "vue";
+const props = defineProps({
+  to: {
+    type: [String, Object],
   },
-  setup(props) {
-    const computedTagName = computed(() =>
-      props.to ? `router-link` : props.href ? `a` : `button`
-    );
-    return {
-      computedTagName,
-    };
+  href: {
+    type: String,
   },
 });
+const computedTagName = computed(() =>
+  props.to ? `router-link` : props.href ? `a` : `button`
+);
 </script>
 <style lang="scss" scoped>
 .interactive-element {

@@ -1,39 +1,29 @@
 <template>
-  <InteractiveElementComponent :class="classList" v-bind="$props" as="span">
+  <InteractiveElementComponent :class="classList" v-bind="$props">
     {{ text }}
   </InteractiveElementComponent>
 </template>
-<script lang="ts">
-import { computed, defineComponent } from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
 import getContrastColor from "../../utils/getContrastColor";
 import InteractiveElementComponent from "./InteractiveElementComponent.vue";
 
-export default defineComponent({
-  components: {
-    InteractiveElementComponent,
+const props = defineProps({
+  ...InteractiveElementComponent.$props,
+  text: {
+    type: String,
   },
-  props: {
-    text: {
-      type: String,
-    },
-    backgroundColor: {
-      type: String,
-    },
+  backgroundColor: {
+    type: String,
   },
-  setup(props) {
-    const textColor = computed(() =>
-      getContrastColor({ hexadecimal: props.backgroundColor || "#ffffff" })
-    );
+});
 
-    const classList = computed(() => {
-      return `tag tag--${textColor.value}`;
-    });
+const textColor = computed(() =>
+  getContrastColor({ hexadecimal: props.backgroundColor || "#ffffff" })
+);
 
-    return {
-      textColor,
-      classList,
-    };
-  },
+const classList = computed(() => {
+  return `tag`;
 });
 </script>
 

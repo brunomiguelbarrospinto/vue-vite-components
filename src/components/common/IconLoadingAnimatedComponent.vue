@@ -7,12 +7,7 @@
     />
   </svg>
 </template>
-<script>
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "IconLoadingAnumatedComponent",
-});
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 // Loading

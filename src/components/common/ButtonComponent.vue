@@ -23,88 +23,74 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+export const sizes = ["xs", "sm", "md", "lg", "xl"];
+export const colors = ["default", "primary"];
+</script>
+
+<script setup lang="ts">
+import { computed } from "vue";
 import InteractiveElementComponent from "./InteractiveElementComponent.vue";
 import IconComponent from "./IconComponent.vue";
 import IconLoadingAnimatedComponent from "./IconLoadingAnimatedComponent.vue";
 
-export const sizes = ["xs", "sm", "md", "lg", "xl"];
-export const colors = ["default", "primary"];
+const props = defineProps({
+  ...InteractiveElementComponent.$props,
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  isOutline: {
+    type: Boolean,
+    default: false,
+  },
+  isText: {
+    type: Boolean,
+    default: false,
+  },
+  isCircle: {
+    type: Boolean,
+    default: false,
+  },
+  size: {
+    type: String,
+    default: "md",
+    validator: (value: string) => {
+      return sizes.includes(value);
+    },
+  },
+  color: {
+    type: String,
+    validator: (value: string) => {
+      return colors.includes(value);
+    },
+  },
+  text: {
+    type: String,
+  },
+  leftIcon: {
+    type: String,
+  },
+  rightIcon: {
+    type: String,
+  },
+});
 
-export default defineComponent({
-  name: "ButtonComponent",
-  components: {
-    InteractiveElementComponent,
-    IconComponent,
-    IconLoadingAnimatedComponent,
-  },
-  props: {
-    ...InteractiveElementComponent.$props,
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    isOutline: {
-      type: Boolean,
-      default: false,
-    },
-    isText: {
-      type: Boolean,
-      default: false,
-    },
-    isCircle: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: "md",
-      validator: (value: string) => {
-        return sizes.includes(value);
-      },
-    },
-    color: {
-      type: String,
-      validator: (value: string) => {
-        return colors.includes(value);
-      },
-    },
-    text: {
-      type: String,
-    },
-    leftIcon: {
-      type: String,
-    },
-    rightIcon: {
-      type: String,
-    },
-  },
-  setup(props) {
-    const classList = computed(() => {
-      const { isOutline, color, isText, isCircle, isLoading } = props;
-      const isLoadingClass = isLoading ? "button--loading" : "";
-      const isOutlineClass = isOutline ? "button--outline" : "";
-      const isTextClass = isText ? "button--text" : "";
-      const isCircleClass = isCircle ? "button--circle" : "";
-      const colorClass = color ? `button--${color}` : "";
-      return `button button--${props.size} ${isOutlineClass} ${colorClass} ${isTextClass} ${isCircleClass} ${isLoadingClass}`;
-    });
-    return {
-      classList,
-    };
-  },
+const classList = computed(() => {
+  const { isOutline, color, isText, isCircle, isLoading } = props;
+  const isLoadingClass = isLoading ? "button--loading" : "";
+  const isOutlineClass = isOutline ? "button--outline" : "";
+  const isTextClass = isText ? "button--text" : "";
+  const isCircleClass = isCircle ? "button--circle" : "";
+  const colorClass = color ? `button--${color}` : "";
+  return `button button--${props.size} ${isOutlineClass} ${colorClass} ${isTextClass} ${isCircleClass} ${isLoadingClass}`;
 });
 </script>
 
 <style lang="scss" scoped>
-$default-color: "gray-500";
-$default-hover-color: "gray-700";
-$default-focus-color: "gray-800";
-
 $selector: ".button";
 
 #{$selector} {
@@ -113,10 +99,10 @@ $selector: ".button";
   // Display
   @apply flex items-center justify-center;
   // Text
-  @apply text-#{$default-color};
+  @apply text-gray-500 dark:text-gray-300;
   @apply font-medium;
   // Background
-  @apply bg-gray-100;
+  @apply bg-gray-100 dark:bg-gray-500;
   // Border
   @apply rounded-sm border-0;
   // Transition
@@ -134,7 +120,7 @@ $selector: ".button";
     @apply h-6 px-2;
 
     svg.loading-svg {
-      @apply h-2 h-2;
+      @apply h-2;
     }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
@@ -149,7 +135,7 @@ $selector: ".button";
     @apply h-8 px-3;
 
     svg.loading-svg {
-      @apply h-3 h-3;
+      @apply h-3;
     }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
@@ -164,7 +150,7 @@ $selector: ".button";
     @apply h-10 px-4;
 
     svg.loading-svg {
-      @apply h-4 h-4;
+      @apply h-4;
     }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
@@ -179,7 +165,7 @@ $selector: ".button";
     @apply h-12 px-5;
 
     svg.loading-svg {
-      @apply h-5 h-5;
+      @apply h-5;
     }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
@@ -194,7 +180,7 @@ $selector: ".button";
     @apply h-14 px-6;
 
     svg.loading-svg {
-      @apply h-6 h-6;
+      @apply h-6;
     }
     // Icon & Text
     #{$selector}__icon + #{$selector}__text {
@@ -207,26 +193,27 @@ $selector: ".button";
 
   // Hover
   &:hover {
-    @apply hover:text-#{$default-hover-color} hover:bg-gray-200;
+    @apply hover:text-gray-700 hover:bg-gray-200;
+    @apply dark:hover:text-gray-50 dark:hover:bg-gray-600;
   }
 
   // Focus
 
   &:focus {
-    @apply focus:text-#{$default-focus-color}  focus:bg-gray-300;
+    @apply focus:text-gray-800  focus:bg-gray-300;
   }
 
   // Variants
 
   &--outline {
-    @apply border-#{$default-color} border-2;
+    @apply border-gray-500 border-2;
     @apply bg-transparent;
 
     &:hover {
-      @apply hover:border-#{$default-color};
+      @apply hover:border-gray-500;
     }
     &:focus {
-      @apply focus:border-#{$default-focus-color};
+      @apply focus:border-gray-800;
     }
   }
 

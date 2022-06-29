@@ -1,4 +1,4 @@
-//import "../src/styles/tailwind.scss";
+import "../src/styles/tailwind.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -7,5 +7,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  darkMode: {
+    darkClass: "dark",
+    stylePreview: true,
   },
 };

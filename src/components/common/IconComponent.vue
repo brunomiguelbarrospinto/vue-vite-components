@@ -1,61 +1,55 @@
 <template>
   <component v-if="isMounted && heroicon" :class="classList" :is="heroicon" />
 </template>
+
 <script lang="ts">
-import { defineComponent, ref, onMounted, computed, PropType } from "vue";
 import * as SolidIcons from "@heroicons/vue/solid";
 import * as OutlineIcons from "@heroicons/vue/outline";
-
 export const types = ["solid", "outline"];
 export const solidIconNames = Object.keys(SolidIcons);
 export const sizes = ["xs", "sm", "md", "lg", "xl"];
+</script>
+<script lang="ts" setup>
+import { ref, onMounted, computed } from "vue";
+import type { PropType } from "vue";
 
 type IconTypes = "solid" | "outline";
-export default defineComponent({
-  name: "IconComponent",
-  props: {
-    // https://heroicons.com
-    // https://github.com/tailwindlabs/heroicons
-    name: {
-      type: String,
-      validator: (value: string) => solidIconNames.includes(value),
-    }, // Prop "name" must be in PascalCase like "ArrowSmLeftIcon"
-    type: {
-      type: String as PropType<IconTypes>,
-      default: "solid",
-      validator: (value: string) => types.includes(value),
-    }, // solid || outline
-    size: {
-      type: String,
-      default: "md",
-      validator: (value: string) => {
-        return sizes.includes(value);
-      },
+const props = defineProps({
+  // https://heroicons.com
+  // https://github.com/tailwindlabs/heroicons
+  name: {
+    type: String,
+    validator: (value: string) => solidIconNames.includes(value),
+  }, // Prop "name" must be in PascalCase like "ArrowSmLeftIcon"
+  type: {
+    type: String as PropType<IconTypes>,
+    default: "solid",
+    validator: (value: string) => types.includes(value),
+  }, // solid || outline
+  size: {
+    type: String,
+    default: "md",
+    validator: (value: string) => {
+      return sizes.includes(value);
     },
   },
-  setup(props) {
-    const isMounted = ref(false);
-    let heroicon;
-    if (props.name) {
-      // eslint-disable-next-line
-      heroicon =
-        props.type === "solid"
-          ? SolidIcons[props.name]()
-          : OutlineIcons[props.name]();
-    }
-    const classList = computed(() => {
-      const { size } = props;
-
-      return `svg svg--${size} `;
-    });
-    onMounted(() => (isMounted.value = true));
-    return {
-      isMounted,
-      heroicon,
-      classList,
-    };
-  },
 });
+
+const isMounted = ref(false);
+let heroicon: any;
+if (props.name) {
+  // eslint-disable-next-line
+  heroicon =
+    props.type === "solid"
+      ? SolidIcons[props.name]()
+      : OutlineIcons[props.name]();
+}
+const classList = computed(() => {
+  const { size } = props;
+
+  return `svg svg--${size} `;
+});
+onMounted(() => (isMounted.value = true));
 </script>
 
 <style lang="scss">
